@@ -1,0 +1,17 @@
+# Pastas de build
+/build/
+/out/
+/.cmake/
+
+# Arquivos gerados por IDEs
+/.vscode/
+/.idea/
+/*.user
+/CMakeSettings.json
+
+# Binários e arquivos compilados
+*.exe
+*.o
+*.obj
+*.a
+*.lib

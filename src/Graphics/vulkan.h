@@ -3,30 +3,30 @@
 #include <vector>
 #include <iostream>
 
-typedef struct VkVersionBuilder 
+typedef struct LtVersionBuilder 
 {
     uint32_t major;
     uint32_t minor;
     uint32_t patch;
-} VkVersionBuilder;
+} LtVersionBuilder;
 
-typedef struct VkDataEngine
+typedef struct LtDataEngine
 {
     const char *name;
-    VkVersionBuilder version;
-} VkDataEngine;
+    LtVersionBuilder version;
+} LtDataEngine;
 
-typedef struct VkDataApplication
+typedef struct LtDataApplication
 {
     const char *name;
-    VkVersionBuilder version;
-} VkDataApplication;
+    LtVersionBuilder version;
+} LtDataApplication;
 
 class Vulkan
 {
 private:
-    static VkApplicationInfo vk_application_info;
+    static VkApplicationInfo LtApplicationInfo;
 
 public:
-    static VkInstance vk_create_instance(VkDataApplication *Application, VkDataEngine *Engine);
+    static VkInstance LtVulkanCreateInstance(LtDataApplication *Application, LtDataEngine *Engine);
 };

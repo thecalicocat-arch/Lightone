@@ -3,27 +3,25 @@
 
 int main()
 {
-    VkVersionBuilder vk_engine_version {
+    LtVersionBuilder vk_engine_version {
+   
+    };
+    LtVersionBuilder vk_application_version {
         .major = 1,
         .minor = 0,
         .patch = 0
     };
-    VkVersionBuilder vk_application_version {
-        .major = 1,
-        .minor = 0,
-        .patch = 0
-    };
-    VkDataEngine engine {
+    LtDataEngine engine {
         .name = "Fast Engine",
         .version = vk_engine_version
     };
-    VkDataApplication application {
+    LtDataApplication application {
         .name = "Fast Engine",
         .version = vk_application_version
     };
 
     Vulkan Vulkan_application;
-    VkInstance Instance = Vulkan_application.vk_create_instance(&application, &engine);
+    VkInstance Instance = Vulkan_application.LtVulkanCreateInstance(&application, &engine);
 
     std::cout << "[SUCESSO] Instancia do Vulkan criada perfeitamente!\n";
 

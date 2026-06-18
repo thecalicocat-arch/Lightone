@@ -37,7 +37,8 @@ find_package(Vulkan REQUIRED)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # Output of the executable file along with its name.
-add_executable(app ${SOURCES})
+add_executable(app ${SOURCES}
+    src/globals.h)
 
 # --------------------------------------------
 # Includes
@@ -57,8 +58,8 @@ target_include_directories(app PRIVATE
 # Any others will be ignored.
 # If you use a library and don't reference it here, a compilation error will occur.
 target_link_libraries(app PRIVATE
-    glfw
-    Vulkan::Vulkan
+    glfw    # Glfw variable
+    Vulkan::Vulkan  # Vulkan variable
     opengl32
     gdi32
     user32

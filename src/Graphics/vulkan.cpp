@@ -1,29 +1,33 @@
 #include "./vulkan.h"
 
-VkApplicationInfo Vulkan::vk_application_info{};
+VkApplicationInfo Vulkan::LtApplicationInfo{};
 
-VkInstance Vulkan::vk_create_instance(VkDataApplication *Application, VkDataEngine *Engine)
+VkInstance Vulkan::LtVulkanCreateInstance(LtDataApplication *Application, LtDataEngine *Engine)
 {
-    vk_application_info.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    vk_application_info.pApplicationName = Application->name;
-    vk_application_info.applicationVersion = VK_MAKE_VERSION(
+    // We begin by initializing the application information.
+    LtApplicationInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    LtApplicationInfo.pApplicationName = Application->name;
+    LtApplicationInfo.applicationVersion = VK_MAKE_VERSION(
         Application->version.major,
         Application->version.minor,
         Application->version.patch
     );
-    vk_application_info.pEngineName = Engine->name;
-    vk_application_info.engineVersion = VK_MAKE_VERSION(
+    LtApplicationInfo.pEngineName = Engine->name;
+    LtApplicationInfo.engineVersion = VK_MAKE_VERSION(
         Engine->version.major, 
         Engine->version.minor, 
         Engine->version.patch
     );
-    vk_application_info.apiVersion = VK_API_VERSION_1_0;
+    LtApplicationInfo.apiVersion = VK_API_VERSION_1_0;
 
+    // We create the basic information for the Vulkan instance.
     VkInstanceCreateInfo CreateInfo{};
     CreateInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    CreateInfo.pApplicationInfo = &vk_application_info;
+    CreateInfo.pApplicationInfo = &LtApplicationInfo;
     CreateInfo.pNext = nullptr;
     CreateInfo.flags = 0;
+    // Reference your extension and layer structure below.
+    // For now, we don't have direct support for layers or extensions.
     CreateInfo.enabledExtensionCount = 0;
     CreateInfo.ppEnabledExtensionNames = nullptr;
     CreateInfo.enabledLayerCount = 0;

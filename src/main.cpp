@@ -3,25 +3,8 @@
 
 int main()
 {
-    LtVersionBuilder vk_engine_version {
-   
-    };
-    LtVersionBuilder vk_application_version {
-        .major = 1,
-        .minor = 0,
-        .patch = 0
-    };
-    LtDataEngine engine {
-        .name = "Fast Engine",
-        .version = vk_engine_version
-    };
-    LtDataApplication application {
-        .name = "Fast Engine",
-        .version = vk_application_version
-    };
-
     Vulkan Vulkan_application;
-    VkInstance Instance = Vulkan_application.LtVulkanCreateInstance(&application, &engine);
+    VkInstance Instance = Vulkan_application.LtVulkanCreateInstance();
 
     std::cout << "[SUCESSO] Instancia do Vulkan criada perfeitamente!\n";
 

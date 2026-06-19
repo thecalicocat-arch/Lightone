@@ -1,26 +1,16 @@
 #pragma once
+
+#ifndef VULKAN_GRAPHICS
+#define VULKAN_GRAPHICS
 #include <vulkan/vulkan.h>
+#include <vulkan/vk_enum_string_helper.h>
+#endif
+
+#include <globals.h>
 #include <vector>
 #include <iostream>
 
-typedef struct LtVersionBuilder 
-{
-    uint32_t major;
-    uint32_t minor;
-    uint32_t patch;
-} LtVersionBuilder;
-
-typedef struct LtDataEngine
-{
-    const char *name;
-    LtVersionBuilder version;
-} LtDataEngine;
-
-typedef struct LtDataApplication
-{
-    const char *name;
-    LtVersionBuilder version;
-} LtDataApplication;
+#include "./Vk/VkLayersExtensions.h"
 
 class Vulkan
 {
@@ -28,5 +18,5 @@ private:
     static VkApplicationInfo LtApplicationInfo;
 
 public:
-    static VkInstance LtVulkanCreateInstance(LtDataApplication *Application, LtDataEngine *Engine);
+    static VkInstance LtVulkanCreateInstance();
 };

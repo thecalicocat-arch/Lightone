@@ -37,8 +37,7 @@ find_package(Vulkan REQUIRED)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # Output of the executable file along with its name.
-add_executable(app ${SOURCES}
-    src/globals.h)
+add_executable(app ${SOURCES})
 
 # --------------------------------------------
 # Includes
@@ -49,6 +48,7 @@ add_executable(app ${SOURCES}
 target_include_directories(app PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/include
     ${VULKAN_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/global
 )
 
 # --------------------------------------------
